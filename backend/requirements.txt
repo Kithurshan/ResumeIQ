@@ -6,3 +6,8 @@ bcrypt==4.1.1
 pydantic==2.5.0
 pydantic-settings==2.1.0
 openpyxl==3.1.5
+pandas
+joblib
+sqlalchemy
+xgboost
+scikit-learn
