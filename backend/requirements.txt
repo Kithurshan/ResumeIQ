@@ -11,3 +11,10 @@ joblib
 sqlalchemy
 xgboost
 scikit-learn
+beautifulsoup4
+numpy
+pdfplumber
+pypdf
+requests
+selenium
+sentence-transformers
