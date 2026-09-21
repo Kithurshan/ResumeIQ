@@ -38,11 +38,12 @@ async def deadline_checker_task():
     repo = RankingRepository()
     while True:
         try:
-            rejected_count = repo.auto_reject_expired_candidates()
+            # Run synchronous DB calls in a separate thread to prevent blocking Uvicorn startup
+            rejected_count = await asyncio.to_thread(repo.auto_reject_expired_candidates)
             if rejected_count > 0:
                 logger.info(f"Auto-rejected {rejected_count} pending candidates due to job deadline expiry.")
                 
-            reminder_count = repo.send_deadline_reminders()
+            reminder_count = await asyncio.to_thread(repo.send_deadline_reminders)
             if reminder_count > 0:
                 logger.info(f"Sent {reminder_count} job deadline reminders.")
         except Exception as e:
