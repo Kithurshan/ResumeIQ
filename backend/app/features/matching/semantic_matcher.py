@@ -15,13 +15,15 @@ class SemanticMatcher:
     MODEL_NAME = "all-MiniLM-L6-v2"
 
     def __init__(self):
-        print("Loading SBERT model...")
+        self._model = None
 
-        self.model = SentenceTransformer(
-            self.MODEL_NAME
-        )
-
-        print("SBERT model loaded successfully.")
+    @property
+    def model(self):
+        if self._model is None:
+            print("Loading SBERT model for the first time...")
+            self._model = SentenceTransformer(self.MODEL_NAME)
+            print("SBERT model loaded successfully.")
+        return self._model
 
     def create_embedding(self, text: str):
         """
