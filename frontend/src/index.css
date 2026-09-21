@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: 'Inter', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+
+  --animate-fade-up: fade-up 0.8s ease-out forwards;
+  --animate-slide-left: slide-left 0.8s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 2s infinite alternate;
+
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0% {
+      box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
+    }
+  }
+
+  --animate-fade-in: fade-in 0.2s ease-out forwards;
+  --animate-scale-in: scale-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-in-right: slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes scale-in {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes slide-in-right {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+}

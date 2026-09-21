@@ -1,0 +1,21 @@
+[19036:11896:0827/204140.144:INFO:components\enterprise\browser\controller\chrome_browser_cloud_management_controller.cc:241] No machine level policy manager exists.
+[18820:11912:0827/204140.200:ERROR:ui\gl\direct_composition_support.cc:254] GetGpuDriverOverlayInfo: Failed to retrieve video device
+[18820:11912:0827/204140.201:VERBOSE1:components\viz\service\main\viz_main_impl.cc:87] VizNullHypothesis is disabled (not a warning)
+[18820:15720:0827/204140.201:VERBOSE1:base\allocator\scheduler_loop_quarantine_config.cc:180] No entry found for gpu-process/viz-compositor.
+[11236:31400:0827/204140.232:INFO:third_party\webrtc\rtc_base\cpu_info.cc:77] Available number of cores: 12
+[23988:21764:0827/204140.258:INFO:third_party\webrtc\rtc_base\cpu_info.cc:77] Available number of cores: 12
+[9180:32744:0827/204140.260:INFO:third_party\webrtc\rtc_base\cpu_info.cc:77] Available number of cores: 12
+[11336:31376:0827/204140.415:INFO:third_party\webrtc\rtc_base\cpu_info.cc:77] Available number of cores: 12
+[23392:4632:0827/204140.542:INFO:third_party\webrtc\rtc_base\cpu_info.cc:77] Available number of cores: 12
+[15400:20408:0827/204140.703:WARNING:net\spdy\spdy_session.cc:3187] Received HEADERS for invalid stream 5
+[31468:32344:0827/204141.844:INFO:third_party\webrtc\rtc_base\cpu_info.cc:77] Available number of cores: 12
+[19036:27544:0827/204143.332:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+[19036:11896:0827/204144.168:ERROR:chrome\browser\download\download_status_updater_win.cc:37] Failed initializing an ITaskbarList3 interface.
+[19036:11896:0827/204144.168:ERROR:chrome\browser\download\download_status_updater_win.cc:37] Failed initializing an ITaskbarList3 interface.
+[19036:11896:0827/204144.208:ERROR:chrome\browser\download\download_status_updater_win.cc:37] Failed initializing an ITaskbarList3 interface.
+[19036:11896:0827/204144.497:ERROR:chrome\browser\download\download_status_updater_win.cc:37] Failed initializing an ITaskbarList3 interface.
+[19036:11896:0827/204144.498:ERROR:chrome\browser\download\download_status_updater_win.cc:37] Failed initializing an ITaskbarList3 interface.
+[19036:11896:0827/204144.503:ERROR:chrome\browser\download\download_status_updater_win.cc:37] Failed initializing an ITaskbarList3 interface.
+[19036:11896:0827/204144.520:ERROR:chrome\browser\download\download_status_updater_win.cc:37] Failed initializing an ITaskbarList3 interface.
+[15400:25052:0827/204145.184:WARNING:net\extras\sqlite\sqlite_persistent_store_backend_base.cc:181] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:231 to client_task_runner_.
+[15400:25052:0827/204145.184:WARNING:net\extras\sqlite\sqlite_persistent_store_backend_base.cc:181] Failed to post task from FlushAndNotifyInBackground@net\extras\sqlite\sqlite_persistent_store_backend_base.cc:231 to client_task_runner_.
