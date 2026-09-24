@@ -40,7 +40,7 @@ const ModelRetrainingTab = () => {
 
   const fetchStatus = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/ml/retrain/status');
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ml/retrain/status`);
       const data = await res.json();
       
       if (data.status === 'success' && data.data) {
@@ -73,7 +73,7 @@ const ModelRetrainingTab = () => {
     if (isTraining) {
       pollInterval = setInterval(async () => {
         try {
-          const res = await fetch('http://localhost:5000/api/ml/retrain/status');
+          const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ml/retrain/status`);
           const data = await res.json();
           if (data.status === 'success' && data.data) {
             const status = data.data.status;
@@ -139,7 +139,7 @@ const ModelRetrainingTab = () => {
 
     try {
         const adminId = localStorage.getItem('adminId') || '1';
-        const res = await fetch('http://localhost:5000/api/ml/retrain/start', {
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ml/retrain/start`, {
             method: 'POST',
             headers: { 'x-admin-id': adminId }
         });

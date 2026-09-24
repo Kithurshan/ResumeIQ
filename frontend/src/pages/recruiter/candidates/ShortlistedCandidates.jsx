@@ -42,7 +42,7 @@ const ShortlistedCandidates = () => {
     const fetchDecisions = async () => {
       try {
         const recruiterId = localStorage.getItem('recruiterId') || '';
-        const response = await axios.get('http://localhost:5000/api/rankings/decisions', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/rankings/decisions`, {
           headers: { 'x-recruiter-id': recruiterId }
         });
         if (response.data.success) {

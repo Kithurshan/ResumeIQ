@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
     const recruiterId = localStorage.getItem('recruiterId');
     if (recruiterId) {
-      fetch('http://localhost:8000/api/auth/recruiter/logout', {
+      fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/auth/recruiter/logout`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ recruiter_id: Number(recruiterId) }),

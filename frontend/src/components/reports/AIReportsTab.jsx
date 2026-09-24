@@ -122,7 +122,7 @@ const AIReportsTab = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/admins/reports/ai');
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admins/reports/ai`);
         const result = await res.json();
         if (result.success) {
           setData(result.data);

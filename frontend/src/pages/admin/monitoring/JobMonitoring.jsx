@@ -39,7 +39,7 @@ const JobMonitoring = () => {
     const fetchJobs = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/admins/jobs');
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admins/jobs`);
         const result = await response.json();
         if (result.success && result.data) {
           setJobs(result.data);

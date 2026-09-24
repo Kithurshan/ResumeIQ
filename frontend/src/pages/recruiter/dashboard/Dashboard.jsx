@@ -103,7 +103,7 @@ const RecruiterDashboard = () => {
     const fetchDashboard = async () => {
       try {
         const recruiterId = localStorage.getItem('recruiterId') || '';
-        const response = await axios.get('http://localhost:5000/api/dashboard', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/dashboard`, {
           headers: { 'x-recruiter-id': recruiterId }
         });
 

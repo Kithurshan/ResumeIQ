@@ -65,7 +65,7 @@ const Details = () => {
     const fetchProcessingDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/api/admins/ai-processing/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/admins/ai-processing/${id}`);
         const result = await response.json();
         if (result.success && result.data) {
           setData(result.data);

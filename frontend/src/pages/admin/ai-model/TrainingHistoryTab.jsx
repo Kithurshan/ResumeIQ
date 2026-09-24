@@ -18,7 +18,7 @@ const TrainingHistoryTab = () => {
 
   const fetchHistory = async () => {
     try {
-        const res = await fetch('http://localhost:5000/api/ml/retrain/history');
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/ml/retrain/history`);
         const data = await res.json();
         if (data.status === 'success' && data.data) {
             setHistory(data.data);

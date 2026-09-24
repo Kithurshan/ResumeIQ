@@ -82,7 +82,7 @@ const getProfileImageUrl = (imagePath) => {
     return cleanPath;
   }
 
-  const backendBaseUrl = 'http://localhost:5000';
+  const backendBaseUrl = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}`;
   return `${backendBaseUrl}/${cleanPath.replace(/^\/+/, '')}`;
 };
 
@@ -91,7 +91,7 @@ const getInitial = (name) => {
   return name.trim().charAt(0).toUpperCase() || 'R';
 };
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`;
 
 // ─── Main Component ────────────────────────────────────────────────────────
 const Profile = () => {

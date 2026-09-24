@@ -82,7 +82,7 @@ const Rankings = () => {
       try {
         const recruiterId = getRecruiterId();
 
-        const res = await axios.get("http://localhost:5000/api/jobs", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/jobs`, {
           headers: { "X-Recruiter-ID": recruiterId }
         });
 
@@ -106,7 +106,7 @@ const Rankings = () => {
     const fetchRankings = async () => {
       if (!selectedJob) return;
       try {
-        const res = await axios.get(`http://localhost:5000/api/rankings/jobs/${selectedJob}?page=1&page_size=10`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/rankings/jobs/${selectedJob}?page=1&page_size=10`);
         setCandidates(res.data.data || []);
         setPagination(res.data.pagination);
       } catch (error) {

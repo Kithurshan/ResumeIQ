@@ -50,7 +50,7 @@ const Analytics = () => {
                 </button>
                 <div className="h-8 w-px bg-gray-800"></div>
                 <button 
-                  onClick={() => window.location.href = 'http://localhost:5000/api/admins/reports/export/excel'}
+                  onClick={() => window.location.href = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admins/reports/export/excel`}
                   className="flex items-center gap-2 px-4 py-2 bg-[#BB86FC]/10 text-[#BB86FC] rounded-xl hover:bg-[#BB86FC]/20 transition-colors font-bold text-sm"
                 >
                   <FiDownload className="w-4 h-4" /> Export Excel

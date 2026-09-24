@@ -37,7 +37,7 @@ const ShortlistedCandidates = () => {
     const fetchShortlisted = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/admins/shortlisted');
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admins/shortlisted`);
         const result = await response.json();
         if (result.success && result.data) {
           setCandidates(result.data);
