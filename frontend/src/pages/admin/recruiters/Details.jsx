@@ -53,7 +53,7 @@ const Details = () => {
         setLoading(true);
         // Using axios directly or import it if needed. We will use fetch here to avoid adding an import if we aren't sure axios is imported.
         // Wait, axios is NOT imported in this file. Let's use fetch.
-        const response = await fetch(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/recruiters/profile/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recruiters/profile/${id}`);
         const result = await response.json();
         
         if (result.success && result.data) {

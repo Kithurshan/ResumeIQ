@@ -71,7 +71,7 @@ const RecruiterDetails = () => {
   useEffect(() => {
     const fetchReport = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/admins/reports/recruiters/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/admins/reports/recruiters/${id}`);
         const result = await res.json();
         if (result.success) {
           setData(result.data);

@@ -69,7 +69,7 @@ const CandidateDetails = () => {
       if (!jobId || !id) return;
       try {
         setLoading(true);
-        const res = await axios.get(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/rankings/jobs/${jobId}/candidates/${id}?t=${new Date().getTime()}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/rankings/jobs/${jobId}/candidates/${id}?t=${new Date().getTime()}`);
         const data = res.data;
         
         setCandidate({
@@ -121,7 +121,7 @@ const CandidateDetails = () => {
     if (isConfirmed) {
       try {
         const recruiterId = localStorage.getItem('recruiterId') || '';
-        await axios.put(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/rankings/jobs/${jobId}/candidates/${id}/status`, 
+        await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/rankings/jobs/${jobId}/candidates/${id}/status`, 
           { status: 'Shortlisted' },
           { headers: { 'x-recruiter-id': recruiterId } }
         );
@@ -144,7 +144,7 @@ const CandidateDetails = () => {
     if (isConfirmed) {
       try {
         const recruiterId = localStorage.getItem('recruiterId') || '';
-        await axios.put(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/rankings/jobs/${jobId}/candidates/${id}/status`, 
+        await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/rankings/jobs/${jobId}/candidates/${id}/status`, 
           { status: 'Waitlisted' },
           { headers: { 'x-recruiter-id': recruiterId } }
         );
@@ -419,7 +419,7 @@ const CandidateDetails = () => {
               <div className="w-full h-[800px] bg-gray-200 rounded-2xl flex flex-col items-center justify-center border border-gray-300 overflow-hidden">
                 {candidate.resume_id ? (
                   <iframe 
-                    src={`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/resumes/${candidate.resume_id}/download`}
+                    src={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/resumes/${candidate.resume_id}/download`}
                     className="w-full h-full border-none"
                     title="Candidate Resume PDF"
                   />

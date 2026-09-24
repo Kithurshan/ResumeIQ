@@ -122,11 +122,11 @@ const List = () => {
 
     try {
       if (modalType === 'deactivate') {
-        await axios.put(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/recruiters/${selectedRecruiter.recruiter_id}/status`, { status: 'Inactive' });
+        await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recruiters/${selectedRecruiter.recruiter_id}/status`, { status: 'Inactive' });
       } else if (modalType === 'activate') {
-        await axios.put(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/recruiters/${selectedRecruiter.recruiter_id}/status`, { status: 'Active' });
+        await axios.put(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recruiters/${selectedRecruiter.recruiter_id}/status`, { status: 'Active' });
       } else if (modalType === 'delete') {
-        await axios.delete(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/recruiters/${selectedRecruiter.recruiter_id}`);
+        await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recruiters/${selectedRecruiter.recruiter_id}`);
       }
       // Refresh list
       fetchRecruiters();

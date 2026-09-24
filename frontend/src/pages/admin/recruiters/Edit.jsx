@@ -66,7 +66,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchRecruiter = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/recruiters/profile/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recruiters/profile/${id}`);
         const result = await response.json();
         
         if (result.success && result.data) {
@@ -126,7 +126,7 @@ const Edit = () => {
     e.preventDefault();
     if (validate()) {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/recruiters/update/${id}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recruiters/update/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -175,7 +175,7 @@ const Edit = () => {
         
         if (uploadResult.success && uploadResult.imageUrl) {
           setProfileImage(uploadResult.imageUrl);
-          await fetch(`${import.meta.env.VITE_API_URL || \`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}\`}/api/recruiters/update-profile-image/${id}?image_url=${encodeURIComponent(uploadResult.imageUrl)}`, {
+          await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/recruiters/update-profile-image/${id}?image_url=${encodeURIComponent(uploadResult.imageUrl)}`, {
             method: 'PUT'
           });
         }
