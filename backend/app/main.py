@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -27,6 +29,7 @@ import logging
 import app.ai.worker_pool as worker_pool
 from app.features.ranking.repository import RankingRepository
 
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 async def deadline_checker_task():
@@ -54,8 +57,10 @@ async def deadline_checker_task():
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    logger.info("ResumeIQ API starting up...")
     # Startup: Start the background deadline checker task
     checker_task = asyncio.create_task(deadline_checker_task())
+    logger.info("ResumeIQ API startup complete — ready to accept requests.")
     yield
     # Shutdown: Cancel the checker task and shutdown the thread pool
     checker_task.cancel()
@@ -67,6 +72,8 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# Ensure uploads directory exists (prevents crash on fresh Render deploys)
+os.makedirs("uploads", exist_ok=True)
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 
@@ -74,18 +81,20 @@ app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 # CORS CONFIGURATION
 # ============================================================
 
+FRONTEND_URL = os.getenv("FRONTEND_URL", "")
+
+allowed_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+if FRONTEND_URL:
+    allowed_origins.append(FRONTEND_URL)
+
 app.add_middleware(
     CORSMiddleware,
-
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
-
+    allow_origins=allowed_origins,
     allow_credentials=True,
-
     allow_methods=["*"],
-
     allow_headers=["*"],
 )
 
@@ -221,9 +230,10 @@ def health_check():
 if __name__ == "__main__":
     import uvicorn
 
+    port = int(os.getenv("PORT", 5000))
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=5000,
+        port=port,
         reload=True,
     )
