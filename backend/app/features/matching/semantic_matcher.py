@@ -1,6 +1,5 @@
 from typing import List
 
-from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
@@ -20,6 +19,9 @@ class SemanticMatcher:
     @property
     def model(self):
         if self._model is None:
+            # Lazy import: only load torch + sentence_transformers on first use,
+            # so uvicorn can bind the port without waiting for these heavy imports.
+            from sentence_transformers import SentenceTransformer
             print("Loading SBERT model for the first time...")
             self._model = SentenceTransformer(self.MODEL_NAME)
             print("SBERT model loaded successfully.")

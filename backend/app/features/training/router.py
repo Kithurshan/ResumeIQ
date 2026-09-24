@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException, BackgroundTasks, Header
 from typing import Optional
-from app.ai.continuous_trainer import trigger_retraining
 from app.features.activity.service import ActivityLogService
 from app.features.training.repository import TrainingRepository
 from app.features.notification.repository import NotificationRepository
@@ -41,6 +40,7 @@ async def retrain_model(background_tasks: BackgroundTasks, x_admin_id: Optional[
         )
 
         # Trigger background process
+        from app.ai.continuous_trainer import trigger_retraining
         background_tasks.add_task(trigger_retraining, training_id, admin_id)
 
         return {"status": "success", "message": "Training started", "training_id": training_id}
